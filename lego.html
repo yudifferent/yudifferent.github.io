@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>LEGO 機構與創意實作班｜禹眾不同 Yu Different</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --orange: #fb923c;
+      --orange-deep: #f97316;
+      --orange-light: #fff7e6;
+      --dark: #1f2933;
+      --gray: #4b5563;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      line-height: 1.6;
+      background: var(--orange-light);
+      color: var(--dark);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 20px 40px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-size: 0.92rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .logo span {
+      color: #ea580c;
+      font-weight: 800;
+      margin-right: 4px;
+    }
+
+    .btn-back {
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .page-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 20px 20px 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #ffedd5;
+      color: #9a3412;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 4px;
+    }
+
+    .subtitle {
+      margin: 0 0 14px;
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin: 18px 0 8px;
+    }
+
+    ul {
+      margin: 6px 0 10px 1.1rem;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    li { margin-bottom: 4px; }
+
+    .note {
+      font-size: 0.82rem;
+      color: #92400e;
+      background: #fff7ed;
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      border: 1px solid #fed7aa;
+      margin-top: 12px;
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .page-card { padding: 18px 16px 20px; }
+      h1 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="logo">
+        <span>禹</span>眾不同 Yu Different
+      </a>
+      <a href="index.html#courses" class="btn-back">← 回到課程總覽</a>
+    </header>
+
+    <main class="page-card">
+      <div class="tag">入門｜LEGO</div>
+      <h1>LEGO 機構與創意實作班</h1>
+      <p class="subtitle">
+        從齒輪、輪軸、連桿開始，讓孩子邊玩邊理解機構原理，  
+        一步步做出「自己設計」的 LEGO 作品。
+      </p>
+
+      <h2>課程目標</h2>
+      <ul>
+        <li>認識常見的機構元件：齒輪、齒輪比、輪軸、連桿等。</li>
+        <li>培養觀察與拆解能力：看到生活中的機械，能說出大概的動作原理。</li>
+        <li>從仿作到改良，最後能設計出「自己的作品」。</li>
+      </ul>
+
+      <h2>課程內容示意</h2>
+      <ul>
+        <li>基礎機構：齒輪、輪軸、滑輪、連桿的實作練習。</li>
+        <li>小專題 1：可以行走的小車（前進、轉彎結構）。</li>
+        <li>小專題 2：簡單的升降 / 擺動機構（例如吊車、橋樑）。</li>
+        <li>延伸挑戰：讓學生自己構想一個「主題作品」，老師協助拆解與實作。</li>
+      </ul>
+
+      <h2>適合對象</h2>
+      <ul>
+        <li>國小高年級 ～ 國中，喜歡 LEGO、喜歡動手做的學生。</li>
+        <li>想理解「為什麼這個東西會動」的孩子，而不只是照說明書拼裝。</li>
+      </ul>
+
+      <h2>上課方式（可彈性調整）</h2>
+      <ul>
+        <li>一對一或小班制（2～4 人）。</li>
+        <li>每次約 90 分鐘，依照學生狀況調整進度。</li>
+        <li>可以配合比賽、學校專題作為延伸目標。</li>
+      </ul>
+
+      <div class="note">
+        以上為示意規劃，實際內容會依學生程度與目標做客製化調整。  
+        如果想了解孩子適不適合這門課，可以先透過 LINE 官方帳號聊聊。😊
+      </div>
+    </main>
+
+    <footer>
+      © 2025 禹眾不同 Yu Different. LEGO 機構與創意實作班
+    </footer>
+  </div>
+</body>
+</html>
 
