@@ -392,6 +392,26 @@
       font-size: 0.88rem;
     }
 
+/* ===== 作品集 Portfolio ===== */
+    .portfolio-section {
+      margin-top: 6px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .portfolio-placeholder {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      font-style: italic;
+      margin: 0;
+    }
+
+    
     .step-item {
       background: rgba(255, 255, 255, 0.85);
       border-radius: var(--radius-md);
@@ -789,7 +809,53 @@
       </div>
     </div>
   </section>
+<!-- 作品集 Portfolio -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="section-title">作品集 Portfolio</h2>
+      <p class="section-subtitle">
+        目前作品仍在整理中，未來會陸續放上老師與學生一起完成的 LEGO、Arduino 與專題成果。
+      </p>
 
+      <!-- 老師作品 -->
+      <div class="portfolio-section">
+        <h3 style="font-size:1rem;margin-bottom:6px;">老師作品</h3>
+        <div class="portfolio-grid">
+          <div class="card">
+            <div class="tag"><span class="dot"></span>LEGO</div>
+            <h3 style="font-size:0.98rem;margin-bottom:6px;">（預留作品位置）</h3>
+            <p class="portfolio-placeholder">
+              之後可以放上你的 LEGO 作品照片與簡短說明，例如：自走小車、機械手臂、升降機構等。
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="tag"><span class="dot"></span>Arduino</div>
+            <h3 style="font-size:0.98rem;margin-bottom:6px;">（預留作品位置）</h3>
+            <p class="portfolio-placeholder">
+              未來可以放 Arduino 相關作品，例如智慧夜燈、超音波測距裝置、環境監測小專案等等。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 學生作品 -->
+      <div class="portfolio-section" style="margin-top:22px;">
+        <h3 style="font-size:1rem;margin-bottom:6px;">學生作品</h3>
+        <div class="portfolio-grid">
+          <div class="card">
+            <div class="tag"><span class="dot"></span>敬請期待</div>
+            <p class="portfolio-placeholder">
+              未來學生完成的作品會放在這裡，記錄他們從零開始到完成作品的過程與成果。
+              每一件作品都會附上簡短介紹與學生自己的想法。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
   <!-- 如何開始 / 步驟 -->
   <section id="howto">
     <div class="container">
@@ -923,6 +989,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
