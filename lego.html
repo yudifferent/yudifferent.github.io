@@ -126,14 +126,87 @@
       color: #6b7280;
       text-align: center;
     }
+/* ===== 右上角三點選單 ===== */
+.floating-menu {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 60;
+}
 
+.menu-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #4b5563;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.menu-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+  background: #ffffff;
+}
+
+.menu-panel {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
+  min-width: 160px;
+  padding: 6px 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  font-size: 0.9rem;
+}
+
+.menu-panel.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.menu-panel a {
+  display: block;
+  padding: 8px 14px;
+  color: #374151;
+}
+
+.menu-panel a:hover {
+  background: #fff7ed;
+  color: #c2410c;
+}
     @media (max-width: 768px) {
       .page-card { padding: 18px 16px 20px; }
       h1 { font-size: 1.35rem; }
     }
   </style>
 </head>
-<body>
+<body id="top">
+  <!-- 右上角三點選單（內頁版） -->
+  <div class="floating-menu">
+    <button class="menu-toggle" id="menuToggle" aria-label="開啟選單">
+      ⋮
+    </button>
+    <nav class="menu-panel" id="menuPanel">
+      <a href="index.html">回到首頁</a>
+      <a href="index.html#courses">回到課程總覽</a>
+      <a href="#top">回到本頁頂部</a>
+      <a href="index.html#contact">聯絡方式</a>
+    </nav>
+  </div>
   <div class="container">
     <header>
       <a href="index.html" class="logo">
@@ -184,10 +257,26 @@
       </div>
     </main>
 
-    <footer>
+      <footer>
       © 2025 禹眾不同 Yu Different. LEGO 機構與創意實作班
     </footer>
   </div>
+
+  <!-- 三點選單的開關功能 -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+
+    menuToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      menuPanel.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!menuPanel.contains(event.target) && !menuToggle.contains(event.target)) {
+        menuPanel.classList.remove('open');
+      }
+    });
+  </script>
 </body>
 </html>
-
