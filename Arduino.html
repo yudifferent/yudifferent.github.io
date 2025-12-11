@@ -1,1 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arduino 感測器實作班｜禹眾不同 Yu Different</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --orange: #fb923c;
+      --orange-deep: #f97316;
+      --orange-light: #fff7e6;
+      --dark: #1f2933;
+      --gray: #4b5563;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+    }
 
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      line-height: 1.6;
+      background: var(--orange-light);
+      color: var(--dark);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 20px 40px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-size: 0.92rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .logo span {
+      color: #ea580c;
+      font-weight: 800;
+      margin-right: 4px;
+    }
+
+    .btn-back {
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .page-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 20px 20px 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fee2e2;
+      color: #b91c1c;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 4px;
+    }
+
+    .subtitle {
+      margin: 0 0 14px;
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin: 18px 0 8px;
+    }
+
+    ul {
+      margin: 6px 0 10px 1.1rem;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    li { margin-bottom: 4px; }
+
+    .note {
+      font-size: 0.82rem;
+      color: #92400e;
+      background: #fff7ed;
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      border: 1px solid #fed7aa;
+      margin-top: 12px;
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    /* ===== 右上角三點選單 ===== */
+    .floating-menu {
+      position: fixed;
+      top: 14px;
+      right: 16px;
+      z-index: 60;
+    }
+
+    .menu-toggle {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #4b5563;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+      background: #ffffff;
+    }
+
+    .menu-panel {
+      position: absolute;
+      top: 48px;
+      right: 0;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
+      min-width: 160px;
+      padding: 6px 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      font-size: 0.9rem;
+    }
+
+    .menu-panel.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .menu-panel a {
+      display: block;
+      padding: 8px 14px;
+      color: #374151;
+    }
+
+    .menu-panel a:hover {
+      background: #fff7ed;
+      color: #c2410c;
+    }
+
+    @media (max-width: 768px) {
+      .page-card { padding: 18px 16px 20px; }
+      h1 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body id="top">
+  <!-- 右上角三點選單（內頁版） -->
+  <div class="floating-menu">
+    <button class="menu-toggle" id="menuToggle" aria-label="開啟選單">
+      ⋮
+    </button>
+    <nav class="menu-panel" id="menuPanel">
+      <a href="index.html">回到首頁</a>
+      <a href="index.html#courses">回到課程總覽</a>
+      <a href="#top">回到本頁頂部</a>
+      <a href="index.html#contact">聯絡方式</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <header>
+      <a href="index.html" class="logo">
+        <span>禹</span>眾不同 Yu Different
+      </a>
+      <a href="index.html#courses" class="btn-back">← 回到課程總覽</a>
+    </header>
+
+    <main class="page-card">
+      <div class="tag">入門｜Arduino</div>
+      <h1>Arduino 感測器實作班</h1>
+      <p class="subtitle">
+        從 LED、按鈕、蜂鳴器到超音波與光感應，一步步學會接線與程式，  
+        最後做出一個「真的會動、會反應」的互動小作品。
+      </p>
+
+      <h2>課程目標</h2>
+      <ul>
+        <li>了解什麼是 Arduino、它在生活中可以用在哪些地方。</li>
+        <li>學會看簡單的接線圖，能自己完成基本電路串接。</li>
+        <li>用最基本的程式邏輯（如果…那麼…）控制感測器與輸出裝置。</li>
+        <li>完成一個屬於自己的互動小專案，例如智慧夜燈或距離提醒器。</li>
+      </ul>
+
+      <h2>課程內容示意</h2>
+      <ul>
+        <li>基礎入門：LED 閃爍、按鈕開關、蜂鳴器發聲。</li>
+        <li>感測器介紹：超音波測距、光敏電阻、溫濕度感測器等。</li>
+        <li>簡單邏輯練習：依照距離、亮度或溫度改變燈光或聲音。</li>
+        <li>小專題實作：例如「智慧夜燈」、「有人經過就亮起的走廊燈」。</li>
+      </ul>
+
+      <h2>適合對象</h2>
+      <ul>
+        <li>國中以上、對電子、電路或程式有興趣的學生。</li>
+        <li>喜歡動手接線、不怕試錯、願意一步步完成專案的學生。</li>
+      </ul>
+
+      <h2>上課方式（可彈性調整）</h2>
+      <ul>
+        <li>一對一或小班制（2～3 人）。</li>
+        <li>每次約 90 分鐘，依照學生背景調整難度與速度。</li>
+        <li>可以搭配學校專題、科展或自學目標客製規劃。</li>
+      </ul>
+
+      <div class="note">
+        以上為示意規劃，實際內容會依學生程度（有沒有接觸過程式、是否懂一點電路）做調整。  
+        如果不確定適不適合，可以先透過 LINE 官方帳號聊聊，再一起規劃起點。😊
+      </div>
+    </main>
+
+    <footer>
+      © 2025 禹眾不同 Yu Different. Arduino 感測器實作班
+    </footer>
+  </div>
+
+  <!-- 三點選單的開關功能 -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+
+    menuToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      menuPanel.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!menuPanel.contains(event.target) && !menuToggle.contains(event.target)) {
+        menuPanel.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
