@@ -34,9 +34,8 @@
 
 /* 卡片裡的圖片：這裡會控制不要超大，也不會變形 */
 .teacher-work img {
-  width: 100%;
-  max-height: 140px;     /* 最多 200px 高，超過就裁掉一點點 */
-  object-fit: cover;     /* 保持比例，像作品縮圖一樣 */
+  width: 100%;     /* 寬度撐滿卡片 */
+  height: auto;    /* 高度依照比例自動算 */
   border-radius: 12px;
   display: block;
 }
@@ -1060,6 +1059,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
