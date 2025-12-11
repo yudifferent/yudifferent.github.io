@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>專題 / 比賽方向客製指導｜禹眾不同 Yu Different</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --orange: #fb923c;
+      --orange-deep: #f97316;
+      --orange-light: #fff7e6;
+      --dark: #1f2933;
+      --gray: #4b5563;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      line-height: 1.6;
+      background: var(--orange-light);
+      color: var(--dark);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 20px 40px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-size: 0.92rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .logo span {
+      color: #ea580c;
+      font-weight: 800;
+      margin-right: 4px;
+    }
+
+    .btn-back {
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .page-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 20px 20px 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 4px;
+    }
+
+    .subtitle {
+      margin: 0 0 14px;
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin: 18px 0 8px;
+    }
+
+    ul {
+      margin: 6px 0 10px 1.1rem;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    li { margin-bottom: 4px; }
+
+    .note {
+      font-size: 0.82rem;
+      color: #92400e;
+      background: #fff7ed;
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      border: 1px solid #fed7aa;
+      margin-top: 12px;
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    /* ===== 右上角三點選單 ===== */
+    .floating-menu {
+      position: fixed;
+      top: 14px;
+      right: 16px;
+      z-index: 60;
+    }
+
+    .menu-toggle {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #4b5563;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+      background: #ffffff;
+    }
+
+    .menu-panel {
+      position: absolute;
+      top: 48px;
+      right: 0;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
+      min-width: 160px;
+      padding: 6px 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      font-size: 0.9rem;
+    }
+
+    .menu-panel.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .menu-panel a {
+      display: block;
+      padding: 8px 14px;
+      color: #374151;
+    }
+
+    .menu-panel a:hover {
+      background: #fff7ed;
+      color: #c2410c;
+    }
+
+    @media (max-width: 768px) {
+      .page-card { padding: 18px 16px 20px; }
+      h1 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body id="top">
+  <!-- 右上角三點選單（內頁版） -->
+  <div class="floating-menu">
+    <button class="menu-toggle" id="menuToggle" aria-label="開啟選單">
+      ⋮
+    </button>
+    <nav class="menu-panel" id="menuPanel">
+      <a href="index.html">回到首頁</a>
+      <a href="index.html#courses">回到課程總覽</a>
+      <a href="#top">回到本頁頂部</a>
+      <a href="index.html#contact">聯絡方式</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <header>
+      <a href="index.html" class="logo">
+        <span>禹</span>眾不同 Yu Different
+      </a>
+      <a href="index.html#courses" class="btn-back">← 回到課程總覽</a>
+    </header>
+
+    <main class="page-card">
+      <div class="tag">進階｜客製</div>
+      <h1>專題 / 比賽方向客製指導</h1>
+      <p class="subtitle">
+        針對有專題、比賽或學校報告需求的學生，一起從「發想 → 拆解 → 實作 → 呈現」  
+        規劃一條做得出來、交得出去、自己也理解的完整路線。
+      </p>
+
+      <h2>適合什麼樣的學生？</h2>
+      <ul>
+        <li>需要做 LEGO / Arduino / 創客相關的專題或報告。</li>
+        <li>有比賽（科展、創客競賽、專題競賽）想參加，但不知道怎麼開始。</li>
+        <li>腦中有想法，卻不太知道怎麼拆成一步一步可以完成的計畫。</li>
+      </ul>
+
+      <h2>可以一起做哪些事情？</h2>
+      <ul>
+        <li>討論與收斂題目方向（從「很多想法」到「一個可實作的主題」）。</li>
+        <li>拆解專題需要的功能、技術與時間安排。</li>
+        <li>協助規劃 LEGO / Arduino / 感測器等技術路線。</li>
+        <li>陪伴完成作品、測試、修改與最終呈現（簡報、海報、口頭報告）。</li>
+      </ul>
+
+      <h2>上課 / 輔導方式</h2>
+      <ul>
+        <li>以一對一或小團體為主（同組同題目）。</li>
+        <li>可以先約一小時討論題目與需求，再決定是否持續指導。</li>
+        <li>時數與堂數完全依專題複雜度與時間壓力彈性調整。</li>
+      </ul>
+
+      <h2>事前準備建議</h2>
+      <ul>
+        <li>如果已經有題目或比賽簡章，可以先拍照或傳檔案，方便一起閱讀。</li>
+        <li>如果完全沒有方向，也可以先聊聊興趣與擅長的部分，一起找主題。</li>
+        <li>越早開始討論越好，能保留更多時間做出完整的作品與調整。</li>
+      </ul>
+
+      <div class="note">
+        每個學生與專題的情況都不同，因此不會有固定「套餐制」，  
+        會先了解需求與時間，再一起討論最適合的安排方式。  
+        如果你有比賽或專題壓力，也可以先用 LINE 官方帳號簡單說明情況，我再回覆可能的作法。😊
+      </div>
+    </main>
+
+    <footer>
+      © 2025 禹眾不同 Yu Different. 專題 / 比賽方向客製指導
+    </footer>
+  </div>
+
+  <!-- 三點選單的開關功能 -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+
+    menuToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      menuPanel.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!menuPanel.contains(event.target) && !menuToggle.contains(event.target)) {
+        menuPanel.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
