@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="禹眾不同 Yu Different｜專注 LEGO 與 Arduino 的實作教學，讓孩子從動手做開始喜歡科技與創造。" />
   <style>
+    .lego-item img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
     /* LEGO 老師作品可捲動區塊 */
 .lego-scroll {
   max-height: 360px;      /* 卡片裡可視高度，超過就可以往下滑 */
@@ -875,15 +882,15 @@
   <!-- 可捲動區塊開始 -->
   <div class="lego-scroll">
 
-    <!-- 作品 1：UltraTrack -->
-    <a class="lego-item" href="lego-ultratrack.html">
-      <img src="lego.png" alt="UltraTrack">
-      <div class="lego-item-title">UltraTrack</div>
-      <p class="lego-item-text">
-        使用 LEGO 履帶與馬達，搭配超音波感測器進行避障的小車設計。
-      </p>
-    </a>
-
+   <!-- 作品 1：UltraTrack -->
+ <a class="lego-item" href="work-lego-car.html">
+  <img src="lego.png" alt="UltraTrack">
+  <div class="lego-item-title">UltraTrack</div>
+  <p class="lego-item-text">
+    使用 LEGO 履帶與馬達，搭配超音波感測器製作的避障小車。
+  </p>
+</a>
+    
     <!-- 作品 2（之後可以再加新的） -->
     <a class="lego-item" href="lego-linefollower.html">
       <img src="lego-line.png" alt="Line Follower">
@@ -1067,6 +1074,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
