@@ -6,6 +6,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="禹眾不同 Yu Different｜專注 LEGO 與 Arduino 的實作教學，讓孩子從動手做開始喜歡科技與創造。" />
   <style>
+    /* LEGO 老師作品可捲動區塊 */
+.lego-scroll {
+  max-height: 360px;      /* 卡片裡可視高度，超過就可以往下滑 */
+  overflow-y: auto;        /* 開啟垂直捲軸 */
+  padding-right: 6px;      /* 讓捲軸不會貼太近文字 */
+}
+
+/* 每一個作品的小卡片 */
+.lego-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+/* 滑過去時有一點浮起來的感覺 */
+.lego-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(15,23,42,0.16);
+}
+
+/* 小卡片裡的圖片 */
+.lego-item img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* 作品標題 */
+.lego-item-title {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* 作品簡短說明 */
+.lego-item-text {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #4b5563;
+}
     /* ===== 全站基本設定 ===== */
     :root {
       --orange: #fb923c;
@@ -821,24 +868,45 @@
       </p>
 
       <!-- 老師作品 -->
-      <div class="portfolio-section">
-        <h3 style="font-size:1rem;margin-bottom:6px;">老師作品</h3>
-        <div class="portfolio-grid">
-<div class="card">
-  <div class="tag"><span class="dot"></span>LEGO</div>
-  <h3 style="font-size:0.98rem;margin-bottom:6px;">UltraTrack</h3>
+<div class="portfolio-card">
+  <div class="tag lego-tag">LEGO</div>
+  <h3>老師作品 Teacher’s Works</h3>
 
-  <!-- 把圖片包在連結裡，點圖片就會進入作品詳細頁 -->
-  <a href="work-lego-car.html">
-    <img src="https://raw.githubusercontent.com/yudifferent/yudifferent.github.io/main/lego.png"
-         alt="UltraTrack"
-        style="width:85%;border-radius:12px;margin:6px auto;display:block;">
-  </a>
+  <!-- 可捲動區塊開始 -->
+  <div class="lego-scroll">
 
-  <p style="font-size:0.88rem;color:#4b5563;">
-    使用 LEGO 積木與馬達、履帶以及超音波感測器打造的避障小車，可前進、轉彎也能夠避開障礙物，並具備穩定的底盤設計。
-  </p>
+    <!-- 作品 1：UltraTrack -->
+    <a class="lego-item" href="lego-ultratrack.html">
+      <img src="lego.png" alt="UltraTrack">
+      <div class="lego-item-title">UltraTrack</div>
+      <p class="lego-item-text">
+        使用 LEGO 履帶與馬達，搭配超音波感測器進行避障的小車設計。
+      </p>
+    </a>
+
+    <!-- 作品 2（之後可以再加新的） -->
+    <a class="lego-item" href="lego-linefollower.html">
+      <img src="lego-line.png" alt="Line Follower">
+      <div class="lego-item-title">Line Follower</div>
+      <p class="lego-item-text">
+        循線車設計，利用光感測器偵測路線，練習感測與迴圈控制。
+      </p>
+    </a>
+
+    <!-- 作品 3（先放假資料也可以） -->
+    <a class="lego-item" href="lego-arm.html">
+      <img src="lego-arm.png" alt="Robot Arm">
+      <div class="lego-item-title">Robot Arm</div>
+      <p class="lego-item-text">
+        機械手臂基礎設計，訓練學生了解關節運動與座標概念。
+      </p>
+    </a>
+
+  </div>
+  <!-- 可捲動區塊結束 -->
 </div>
+
+      
           <div class="card">
             <div class="tag"><span class="dot"></span>Arduino</div>
             <h3 style="font-size:0.98rem;margin-bottom:6px;">（預留作品位置）</h3>
@@ -999,6 +1067,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
