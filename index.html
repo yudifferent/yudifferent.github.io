@@ -448,6 +448,37 @@
       margin-top: 8px;
     }
 
+    /* ===== FAQ / 常見問題 ===== */
+    .faq-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--dark);
+    }
+
+    .faq-a {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin: 0;
+    }
+
+    
     .contact-list {
       list-style: none;
       padding: 0;
@@ -784,6 +815,55 @@
       </ul>
     </div>
   </section>
+    <!-- 常見問題 FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">常見問題 Q&A</h2>
+      <p class="section-subtitle">如果你也是第一次接觸 LEGO / Arduino 創客課，可以先看看這裡的說明。</p>
+
+      <ul class="faq-list">
+        <li class="faq-item">
+          <div class="faq-q">Q：完全沒有 LEGO / Arduino 基礎也可以上課嗎？</div>
+          <p class="faq-a">
+            可以。課程會先從觀察與簡單實作開始，依照學生年齡與經驗調整難度，
+            不會直接丟太難的東西給學生。
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q">Q：需要自備器材嗎？</div>
+          <p class="faq-a">
+            目前以老師這邊準備好的 LEGO / Arduino 套件為主，
+            如果學生本身有器材也可以一起討論怎麼搭配使用。
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q">Q：一堂課多長？會不會太累？</div>
+          <p class="faq-a">
+            大多安排約 90 分鐘，中間會依照學生狀態安排節奏，
+            有時候是動手做、有時候是一起討論與構想，不會一直盯著電腦。
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q">Q：上幾堂課可以做出作品？</div>
+          <p class="faq-a">
+            會先從小作品開始，讓學生在前幾堂就能完成一些簡單但有成就感的作品，
+            之後再往自己設計的專題前進。
+          </p>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q">Q：費用怎麼計算？</div>
+          <p class="faq-a">
+            依授課方式（一對一或小班）、上課頻率與專題目標不同而調整，
+            建議先透過 LINE 官方帳號聊聊需求，再一起討論最合適的方式。
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <!-- 聯絡方式 / Call to action -->
   <section id="contact">
@@ -843,6 +923,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
