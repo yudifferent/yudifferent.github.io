@@ -6,60 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="禹眾不同 Yu Different｜專注 LEGO 與 Arduino 的實作教學，讓孩子從動手做開始喜歡科技與創造。" />
   <style>
-    .lego-item img {
-  width: 100%;
-  max-height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
-    /* LEGO 老師作品可捲動區塊 */
-.lego-scroll {
-  max-height: 360px;      /* 卡片裡可視高度，超過就可以往下滑 */
-  overflow-y: auto;        /* 開啟垂直捲軸 */
-  padding-right: 6px;      /* 讓捲軸不會貼太近文字 */
+/* 老師作品列表：整個小小可捲動區塊 */
+.teacher-works {
+  margin-top: 8px;
+  max-height: 320px;     /* 卡片內最大高度，超過就可以往下捲 */
+  overflow-y: auto;
+  padding-right: 6px;
 }
 
-/* 每一個作品的小卡片 */
-.lego-item {
+/* 每一個老師作品的小卡片 */
+.teacher-work {
   display: block;
   text-decoration: none;
   color: inherit;
   background: #ffffff;
   border-radius: 16px;
-  padding: 12px;
+  padding: 10px 10px 12px;
   margin-bottom: 12px;
-  box-shadow: 0 4px 12px rgba(15,23,42,0.08);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
-/* 滑過去時有一點浮起來的感覺 */
-.lego-item:hover {
+.teacher-work:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(15,23,42,0.16);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16);
 }
 
-/* 小卡片裡的圖片 */
-.lego-item img {
+/* 卡片裡的圖片：這裡會控制不要超大，也不會變形 */
+.teacher-work img {
   width: 100%;
+  max-height: 200px;     /* 最多 200px 高，超過就裁掉一點點 */
+  object-fit: cover;     /* 保持比例，像作品縮圖一樣 */
   border-radius: 12px;
   display: block;
 }
 
 /* 作品標題 */
-.lego-item-title {
+.teacher-work-title {
   margin-top: 8px;
   font-weight: 700;
   font-size: 1rem;
 }
 
-/* 作品簡短說明 */
-.lego-item-text {
+/* 作品簡介 */
+.teacher-work-text {
   margin-top: 4px;
   font-size: 0.9rem;
   line-height: 1.4;
   color: #4b5563;
 }
+
+
+
+
+    
     /* ===== 全站基本設定 ===== */
     :root {
       --orange: #fb923c;
@@ -879,38 +879,21 @@
   <div class="tag lego-tag">LEGO</div>
   <h3>老師作品 Teacher’s Works</h3>
 
-  <!-- 可捲動區塊開始 -->
-  <div class="lego-scroll">
+  <!-- 老師作品：可捲動區塊 -->
+  <div class="teacher-works">
 
-   <!-- 作品 1：UltraTrack -->
- <a class="lego-item" href="work-lego-car.html">
-  <img src="lego.png" alt="UltraTrack">
-  <div class="lego-item-title">UltraTrack</div>
-  <p class="lego-item-text">
-    使用 LEGO 履帶與馬達，搭配超音波感測器製作的避障小車。
-  </p>
-</a>
-    
-    <!-- 作品 2（之後可以再加新的） -->
-    <a class="lego-item" href="lego-linefollower.html">
-      <img src="lego-line.png" alt="Line Follower">
-      <div class="lego-item-title">Line Follower</div>
-      <p class="lego-item-text">
-        循線車設計，利用光感測器偵測路線，練習感測與迴圈控制。
+    <!-- 作品 1：UltraTrack -->
+    <a class="teacher-work" href="work-lego-car.html">
+      <img src="lego.png" alt="UltraTrack">
+      <div class="teacher-work-title">UltraTrack</div>
+      <p class="teacher-work-text">
+        使用 LEGO 履帶與馬達，搭配超音波感測器製作的避障小車，能偵測前方障礙並自動轉向。
       </p>
     </a>
 
-    <!-- 作品 3（先放假資料也可以） -->
-    <a class="lego-item" href="lego-arm.html">
-      <img src="lego-arm.png" alt="Robot Arm">
-      <div class="lego-item-title">Robot Arm</div>
-      <p class="lego-item-text">
-        機械手臂基礎設計，訓練學生了解關節運動與座標概念。
-      </p>
-    </a>
+    <!-- 之後如果有新作品，就在下面再加一個 a.teacher-work 就好 -->
 
   </div>
-  <!-- 可捲動區塊結束 -->
 </div>
 
       
@@ -1074,6 +1057,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
