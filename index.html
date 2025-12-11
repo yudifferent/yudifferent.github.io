@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>禹眾不同機器人｜實戰機器人教育</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+   body 
+{
+/* 放在 body 下面就好 */
+h1, h2, h3 {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+p, li, a, span {
+  font-family: "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+  margin: 0;
+  font-family: "Nunito", "Noto Sans TC", sans-serif;
+  line-height: 1.6;
+  background: #F5F7FF;
+  color: #333;
+}
+
+/* 首頁區（Header） */
+header {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #4F46E5, #6366F1);
+  color: white;
+}
+
+header h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  opacity: 0.9;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: white;
+  color: #4F46E5;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #E0E7FF;
+}
+
+/* 內容區域 */
+section {
+  padding: 40px 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #4F46E5;
+}
+
+/* 課程卡片 */
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.tag {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  background: #E0E7FF;
+  color: #4F46E5;
+  margin-bottom: 10px;
+}
+
+/* 頁尾 */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background: #EEF0FF;
+  color: #555;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>禹眾不同機器人 您的孩子[與]眾不同</h1>
+    <p>專注實戰的機器人與科技教育，讓孩子不只是「學程式」，而是能親手做出作品、參加比賽、建立自己的未來優勢。</p>
+    <a class="btn" href="#contact">加入 Line 詢問課程</a>
+  </header>
+
+  <section id="about">
+    <h2>關於我們</h2>
+    <p>
+      禹眾不同機器人由創辦人「禹」創立，專注於實戰型機器人與 STEM 教育。
+      相信真正的學習不在課本上，而是在一次次把想法變成會動的作品、
+      在比賽場上解決問題、在錯誤中不斷調整的過程。
+    </p>
+  </section>
+
+  <section id="courses">
+    <h2>課程介紹</h2>
+    <div class="courses">
+      <div class="card">
+        <div class="tag">入門｜國小高年級～國中</div>
+        <h3>機器人基礎實作班</h3>
+        <p>從零開始認識感測器、馬達、控制板，讓學生親手組裝、寫程式，完成第一台會動的機器人。</p>
+      </div>
+      <div class="card">
+        <div class="tag">進階｜有基礎者</div>
+        <h3>專題 & 比賽實戰班</h3>
+        <p>以實際專題或比賽項目為目標，學習路徑規劃、模組設計、Debug 以及團隊合作。</p>
+      </div>
+      <div class="card">
+        <div class="tag">客製</div>
+        <h3>一對一精英訓練</h3>
+        <p>依學生程度客製訓練內容，可依升學作品集、競賽目標或個人興趣設計專案。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>常見問題</h2>
+    <p><strong>Q：完全沒有程式基礎可以上嗎？</strong><br>可以，入門班會從零開始帶，重點是培養邏輯與動手能力。</p>
+    <p><strong>Q：課程對升學有幫助嗎？</strong><br>實作專題與競賽經驗，都可以成為未來自我介紹與作品集的一部分。</p>
+  </section>
+
+  <section id="contact">
+    <h2>聯絡與試上</h2>
+    <p>
+      想了解課程、試上安排或合作邀約，歡迎加入 Line 或 IG 私訊：
+    </p>
+    <ul>
+      <li>Line：請搜尋 ID：0958833520</li>
+      <li>Instagram：yu.different</li>
+      <li>Email：aa0958833520@gmail.com</li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2025 禹眾不同機器人. 保留所有權利。
+  </footer>
+</body>
+</html>
