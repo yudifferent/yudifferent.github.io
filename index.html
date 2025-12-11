@@ -468,7 +468,35 @@
       border-radius: 999px;
       background: #f97316;
     }
+/* ===== 回到頂部按鈕 ===== */
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  z-index: 50;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  opacity: 0.9;
+}
 
+.back-to-top:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+  opacity: 1;
+}
+
+    
     /* ===== 頁尾 ===== */
     footer {
       text-align: center;
@@ -501,7 +529,7 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- Hero 首頁區 -->
   <section class="hero">
@@ -710,8 +738,11 @@
   <footer>
     © 2025 禹眾不同 Yu Different. All rights reserved.
   </footer>
+  <!-- 回到頂部按鈕 -->
+<a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
