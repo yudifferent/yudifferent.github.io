@@ -2,178 +2,713 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>禹眾不同機器人｜實戰機器人教育</title>
+  <title>禹眾不同 Yu Different｜LEGO & Arduino 創客教學</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="禹眾不同 Yu Different｜專注 LEGO 與 Arduino 的實作教學，讓孩子從動手做開始喜歡科技與創造。" />
   <style>
-   body 
-{
-/* 放在 body 下面就好 */
-h1, h2, h3 {
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  letter-spacing: 0.5px;
-}
+    /* ===== 全站基本設定 ===== */
+    :root {
+      --orange: #fb923c;
+      --orange-deep: #f97316;
+      --orange-light: #fff7e6;
+      --dark: #1f2933;
+      --gray: #4b5563;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+    }
 
-p, li, a, span {
-  font-family: "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-  margin: 0;
-  font-family: "Nunito", "Noto Sans TC", sans-serif;
-  line-height: 1.6;
-  background: #F5F7FF;
-  color: #333;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      line-height: 1.6;
+      background: var(--orange-light);
+      color: var(--dark);
+    }
 
-/* 首頁區（Header） */
-header {
-  padding: 80px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #4F46E5, #6366F1);
-  color: white;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-header h1 {
-  font-size: 2.6rem;
-  margin-bottom: 10px;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-header p {
-  max-width: 600px;
-  margin: 0 auto 20px;
-  opacity: 0.9;
-}
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  border-radius: 999px;
-  text-decoration: none;
-  background: white;
-  color: #4F46E5;
-  font-weight: bold;
-  transition: 0.2s;
-}
+    h1, h2, h3 {
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
 
-.btn:hover {
-  background: #E0E7FF;
-}
+    h2.section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
 
-/* 內容區域 */
-section {
-  padding: 40px 20px;
-  max-width: 960px;
-  margin: 0 auto;
-}
+    p.section-subtitle {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
 
-h2 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: #4F46E5;
-}
+    section {
+      padding: 56px 0;
+    }
 
-/* 課程卡片 */
-.courses {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
+    /* ===== 首頁 Hero 區 ===== */
+    .hero {
+      padding: 72px 0 56px;
+    }
 
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: 0.2s;
-}
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 32px;
+      align-items: center;
+    }
 
-.card:hover {
-  transform: translateY(-4px);
-}
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.6);
+      color: #92400e;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
 
-.tag {
-  display: inline-block;
-  border-radius: 999px;
-  padding: 5px 12px;
-  font-size: 0.75rem;
-  background: #E0E7FF;
-  color: #4F46E5;
-  margin-bottom: 10px;
-}
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--orange-deep);
+      margin-right: 6px;
+    }
 
-/* 頁尾 */
-footer {
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  background: #EEF0FF;
-  color: #555;
-}
+    .hero-title {
+      font-size: clamp(2.1rem, 4vw, 2.6rem);
+      margin-bottom: 10px;
+    }
+
+    .hero-title span.en {
+      font-size: 1.4rem;
+      font-weight: 600;
+      display: block;
+      margin-top: 4px;
+      color: #9f1239;
+    }
+
+    .hero-subtitle {
+      margin-top: 0.25rem;
+      margin-bottom: 1.5rem;
+      color: var(--gray);
+      font-size: 0.98rem;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-bottom: 1.4rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      display: flex;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .hero-points li span.icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #fed7aa;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--dark);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    .btn-ghost:hover {
+      background: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+    }
+
+    .btn span.icon {
+      margin-right: 6px;
+      font-size: 1.1rem;
+    }
+
+    .hero-note {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 22px 20px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-title {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-chip {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #ffedd5;
+      color: #c2410c;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px;
+      font-size: 0.85rem;
+    }
+
+    .hero-card-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+    }
+
+    .hero-card-list span.label {
+      color: #6b7280;
+    }
+
+    .hero-card-list span.value {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .hero-tagline {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .hero-accent-circle {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fed7aa, transparent 60%);
+      right: -40px;
+      top: -40px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* ===== 關於我 / 優勢區 ===== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    .pill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 0.82rem;
+      color: #6b7280;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--orange-deep);
+      margin-right: 6px;
+    }
+
+    .callout {
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      background: #fff7ed;
+      font-size: 0.85rem;
+      color: #92400e;
+      border: 1px solid #fed7aa;
+    }
+
+    /* ===== 課程區 ===== */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #ffedd5;
+      color: #9a3412;
+      margin-bottom: 6px;
+    }
+
+    .tag span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #f97316;
+      margin-right: 5px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      margin: 0 0 10px;
+      color: #4b5563;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .card-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ===== 步驟 / 如何開始 ===== */
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      font-size: 0.88rem;
+    }
+
+    .step-item {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      border: 1px solid #fed7aa;
+    }
+
+    .step-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ea580c;
+      margin-bottom: 3px;
+    }
+
+    /* ===== 聯絡方式 / Call to action ===== */
+    .contact-card {
+      background: linear-gradient(135deg, #fed7aa, #ffedd5);
+      border-radius: 24px;
+      padding: 22px 20px 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .btn-line {
+      background: #06c755;
+      color: #fff;
+    }
+
+    .btn-line:hover {
+      background: #04b24b;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(5, 122, 85, 0.4);
+    }
+
+    .btn-ig {
+      background: rgba(255, 255, 255, 0.9);
+      color: #db2777;
+    }
+
+    .btn-ig:hover {
+      background: #ffffff;
+    }
+
+    .contact-note {
+      font-size: 0.8rem;
+      color: #7c2d12;
+      margin-top: 8px;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      font-size: 0.85rem;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #f97316;
+    }
+
+    /* ===== 頁尾 ===== */
+    footer {
+      text-align: center;
+      padding: 22px 0 26px;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    /* ===== RWD ===== */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 50px;
+      }
+
+      section {
+        padding: 44px 0;
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>禹眾不同機器人 您的孩子[與]眾不同</h1>
-    <p>專注實戰的機器人與科技教育，讓孩子不只是「學程式」，而是能親手做出作品、參加比賽、建立自己的未來優勢。</p>
-    <a class="btn" href="#contact">加入 Line 詢問課程</a>
-  </header>
 
-  <section id="about">
-    <h2>關於我們</h2>
-    <p>
-      禹眾不同機器人由創辦人「禹」創立，專注於實戰型機器人與 STEM 教育。
-      相信真正的學習不在課本上，而是在一次次把想法變成會動的作品、
-      在比賽場上解決問題、在錯誤中不斷調整的過程。
-    </p>
-  </section>
+  <!-- Hero 首頁區 -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          LEGO・Arduino・創客實作教學
+        </div>
+        <h1 class="hero-title">
+          禹眾不同
+          <span class="en">Yu Different Studio</span>
+        </h1>
+        <p class="hero-subtitle">
+          用 LEGO 與 Arduino，帶孩子從「動手做」開始喜歡科技。  
+          小班制教學、實際接線、真實作品，一步步建立成就感與自信。
+        </p>
 
-  <section id="courses">
-    <h2>課程介紹</h2>
-    <div class="courses">
-      <div class="card">
-        <div class="tag">入門｜國小高年級～國中</div>
-        <h3>機器人基礎實作班</h3>
-        <p>從零開始認識感測器、馬達、控制板，讓學生親手組裝、寫程式，完成第一台會動的機器人。</p>
+        <ul class="hero-points">
+          <li><span class="icon">🧱</span> LEGO 機構設計與創造力養成</li>
+          <li><span class="icon">💡</span> Arduino 感測器與程式邏輯入門</li>
+          <li><span class="icon">🧑‍🏫</span> 一對一 / 小團體教學，彈性安排</li>
+          <li><span class="icon">🚀</span> 以作品為核心的實作課程</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://line.me/R/ti/p/@595zbnkv" target="_blank">
+            <span class="icon">💬</span> LINE 官方詢問課程
+          </a>
+          <a class="btn btn-ghost" href="#courses">
+            看課程介紹
+          </a>
+        </div>
+        <p class="hero-note">目前採預約制授課｜歡迎家長與學生私訊討論程度與目標。</p>
       </div>
-      <div class="card">
-        <div class="tag">進階｜有基礎者</div>
-        <h3>專題 & 比賽實戰班</h3>
-        <p>以實際專題或比賽項目為目標，學習路徑規劃、模組設計、Debug 以及團隊合作。</p>
-      </div>
-      <div class="card">
-        <div class="tag">客製</div>
-        <h3>一對一精英訓練</h3>
-        <p>依學生程度客製訓練內容，可依升學作品集、競賽目標或個人興趣設計專案。</p>
+
+      <div class="hero-card">
+        <div class="hero-accent-circle"></div>
+        <div class="hero-card-title">
+          課程小檔案
+          <span class="hero-chip">禹眾不同 Yu Different</span>
+        </div>
+        <ul class="hero-card-list">
+          <li>
+            <span class="label">適合年齡</span>
+            <span class="value">國小高年級 ～ 國高中</span>
+          </li>
+          <li>
+            <span class="label">主軸內容</span>
+            <span class="value">LEGO・Arduino・創客實作</span>
+          </li>
+          <li>
+            <span class="label">課程型態</span>
+            <span class="value">一對一 / 小班客製</span>
+          </li>
+        </ul>
+        <p class="hero-tagline">從簡單的 LED 與齒輪開始，到能自己設計作品為止。</p>
       </div>
     </div>
   </section>
 
-  <section id="faq">
-    <h2>常見問題</h2>
-    <p><strong>Q：完全沒有程式基礎可以上嗎？</strong><br>可以，入門班會從零開始帶，重點是培養邏輯與動手能力。</p>
-    <p><strong>Q：課程對升學有幫助嗎？</strong><br>實作專題與競賽經驗，都可以成為未來自我介紹與作品集的一部分。</p>
+  <!-- 關於我 / 為什麼開這個課 -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">關於禹眾不同</h2>
+      <p class="section-subtitle">不是為了考試，而是讓孩子真的「敢動手、敢嘗試、敢創造」。</p>
+
+      <div class="grid-2">
+        <div>
+          <p>
+            我是一位喜歡動手做、也喜歡教學的創客老師。  
+            過去長期接觸 LEGO 與 Arduino，帶學生做過各種小車、機構、感測器專案。
+          </p>
+          <p>
+            我相信：<br>
+            會接線、會動手、敢試錯，比背很多理論更重要。  
+            所以在課程中，我會讓孩子「自己設計、自己組裝、自己 debug」，  
+            一步步累積真正屬於自己的成就感。
+          </p>
+          <div class="callout">
+            目前課程以「客製化」為主：  
+            先了解學生程度與目標，再一起設計適合的學習路徑。
+          </div>
+        </div>
+        <div>
+          <ul class="pill-list">
+            <li class="pill"><span class="dot"></span> LEGO 機器人與機構設計</li>
+            <li class="pill"><span class="dot"></span> Arduino 感測器專案（超音波、光敏、溫濕度…）</li>
+            <li class="pill"><span class="dot"></span> STEAM / Maker 思維養成</li>
+            <li class="pill"><span class="dot"></span> 一步步帶著完成「自己的作品」</li>
+            <li class="pill"><span class="dot"></span> 能配合比賽或專題方向討論</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contact">
-  <h2>聯絡方式</h2>
-  <ul>
-    <li>
-      <a href="https://line.me/R/ti/p/@595zbnkv" target="_blank">
-        LINE 官方帳號：@595zbnkv
-      </a>
-    </li>
-    <li>
-      <a href="https://instagram.com/yu_different" target="_blank">
-        Instagram：@yu_different
-      </a>
-    </li>
-  </ul>
-</section>
+  <!-- 課程介紹 -->
+  <section id="courses">
+    <div class="container">
+      <h2 class="section-title">課程方向與規劃</h2>
+      <p class="section-subtitle">以下為示意課程方向，實際內容會依照學生年齡與程度客製調整。</p>
 
+      <div class="courses-grid">
+        <div class="card">
+          <div class="tag"><span class="dot"></span>入門｜LEGO</div>
+          <h3>LEGO 機構與創意實作班</h3>
+          <p>
+            從齒輪、輪軸、連桿開始，透過實際作品理解機構原理。  
+            讓孩子在堆疊積木的過程中，認識「機械」其實很有趣。
+          </p>
+          <div class="card-meta">
+            <span>適合：國小高年級起</span>
+            <span>建議：每次 90 分鐘</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="tag"><span class="dot"></span>入門｜Arduino</div>
+          <h3>Arduino 感測器實作班</h3>
+          <p>
+            LED、按鈕開關、蜂鳴器、超音波感測器…  
+            一步步學會接線與程式，最後完成一個自己的小專案（例如智慧夜燈）。
+          </p>
+          <div class="card-meta">
+            <span>適合：國中以上</span>
+            <span>基礎電腦操作即可</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="tag"><span class="dot"></span>進階｜客製</div>
+          <h3>專題 / 比賽方向客製指導</h3>
+          <p>
+            針對有想做專題、比賽或學校作業需求的學生，  
+            協助發想主題、拆解步驟、規劃時間與技術路線。
+          </p>
+          <div class="card-meta">
+            <span>形式：一對一 / 小團體</span>
+            <span>內容依需求討論</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 如何開始 / 步驟 -->
+  <section id="howto">
+    <div class="container">
+      <h2 class="section-title">如何開始？</h2>
+      <p class="section-subtitle">不用急著決定報名，先聊聊孩子的狀況與目標就好。</p>
+
+      <ul class="steps">
+        <li class="step-item">
+          <div class="step-label">Step 1</div>
+          <strong>加 LINE 官方帳號</strong>
+          <p>簡單自我介紹＋孩子年齡與目前程度（有沒有接觸過 LEGO / 程式都可以說）。</p>
+        </li>
+        <li class="step-item">
+          <div class="step-label">Step 2</div>
+          <strong>一起討論適合的方向</strong>
+          <p>依照年齡、興趣與時間，先抓出最適合的學習路線，再安排體驗或第一堂課。</p>
+        </li>
+        <li class="step-item">
+          <div class="step-label">Step 3</div>
+          <strong>從第一個作品開始</strong>
+          <p>用一個小作品當起點，讓孩子在完成作品的過程中，慢慢建立信心與成就感。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 聯絡方式 / Call to action -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <h2 class="section-title" style="margin-bottom: 0.4rem;">聯絡方式</h2>
+        <p class="section-subtitle" style="margin-bottom: 0.8rem;">
+          目前以「預約制」為主，歡迎透過 LINE 或 IG 私訊，  
+          告訴我你／孩子的狀況，我再一起幫你規劃最適合的方式。
+        </p>
+
+        <div class="contact-actions">
+          <a class="btn btn-line" href="https://line.me/R/ti/p/@595zbnkv" target="_blank">
+            加入 LINE 官方帳號
+          </a>
+          <a class="btn btn-ig" href="https://instagram.com/yu.different" target="_blank">
+            查看 IG 動態與作品
+          </a>
+        </div>
+
+        <ul class="contact-list">
+          <li><span class="bullet"></span> LINE ID：@595zbnkv</li>
+          <li><span class="bullet"></span> Instagram：@yu.different（可自行調整）</li>
+          <li><span class="bullet"></span> 網站：yudifferent.github.io</li>
+        </ul>
+
+        <p class="contact-note">
+          目前作品集與課程仍在持續整理與更新中，也歡迎之後回來看看最新進度。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
   <footer>
-    © 2025 禹眾不同機器人. 保留所有權利。
+    © 2025 禹眾不同 Yu Different. All rights reserved.
   </footer>
 </body>
 </html>
-
-
-
