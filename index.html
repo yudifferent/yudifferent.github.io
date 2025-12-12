@@ -718,6 +718,60 @@
   margin-left: auto;
   margin-right: auto;
 }
+    /* ===== 上課方式與流程 ===== */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.process-step {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid #fed7aa;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.process-num {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+  color: #fff;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.process-body h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.process-body p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.55;
+}
+
+.process-note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #92400e;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+}
   </style>
 </head>
 <body id="top">
@@ -729,8 +783,11 @@
     <nav class="menu-panel" id="menuPanel">
       <a href="#top">回到首頁</a>
       <a href="#about">關於禹眾不同</a>
-      <a href="#courses">課程介紹</a>
+      <a href="#courses">課程規劃</a>
+      <a href="portfolio">作品集</a>
+      <a href="#process">上課流程</a>
       <a href="#howto">如何開始</a>
+      <a href="faq">常見問題 Q&A</a>
       <a href="#contact">聯絡方式</a>
     </nav>
   </div>
@@ -962,7 +1019,57 @@
     </div>
   </div>
 </section>
+<!-- 上課方式與流程 -->
+<section id="process">
+  <div class="container">
+    <h2 class="section-title">上課方式與流程</h2>
+    <p class="section-subtitle">每堂課會依學生程度與目標調整內容，但整體流程大致如下：</p>
 
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-body">
+          <h3>認識今天的主題與目標</h3>
+          <p>先讓學生了解今天要做什麼、為什麼要這樣做，而不是直接動手拼裝。</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-body">
+          <h3>動手組裝與實作</h3>
+          <p>從結構、零件到感測器配置，實際完成作品，過程中引導學生思考設計原因。</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-body">
+          <h3>程式與行為設定</h3>
+          <p>用清楚的程式邏輯讓作品「動起來」，並理解感測與動作之間的關係。</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div class="process-body">
+          <h3>測試、調整與修正</h3>
+          <p>反覆測試作品表現，找出問題並嘗試不同解法，培養耐心與問題分析能力。</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-num">5</div>
+        <div class="process-body">
+          <h3>整理與分享學到的內容</h3>
+          <p>回顧今天的重點，鼓勵學生說出自己的設計想法與收穫。</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="process-note">課程重點不在速度，而在於讓學生真正理解每一個步驟。</p>
+  </div>
+</section>
 
 
   <!-- 如何開始 / 步驟 -->
@@ -1101,6 +1208,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
