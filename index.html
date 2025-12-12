@@ -19,7 +19,27 @@
   padding: 16px;
   box-sizing: border-box;
 }
+/* 讓「學生作品」這一塊不要無限拉長，超過就用滾輪 */
+.student-works .portfolio-grid{
+  max-height: 260px;     /* 想更矮就 220；想更高就 320 */
+  overflow-y: auto;
+  padding-right: 6px;
+}
 
+/* 如果你覺得學生作品整塊太寬，也一起縮小置中 */
+.student-works{
+  max-width: 520px;      /* 你想更小就 480 */
+  margin-left: auto;
+  margin-right: auto;
+}
+.student-works .card{
+  padding: 14px;
+}
+.student-works .portfolio-placeholder{
+  line-height: 1.6;
+}
+
+    
 /* 每一個老師作品的小卡片 */
 .teacher-work {
   display: block;
@@ -917,7 +937,7 @@
       </div>
 
       <!-- 學生作品 -->
-      <div class="portfolio-section" style="margin-top:22px;">
+      <div class="portfolio-section student-works" style="margin-top:22px;">
         <h3 style="font-size:1rem;margin-bottom:6px;">學生作品</h3>
         <div class="portfolio-grid">
           <div class="card">
@@ -1066,6 +1086,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
