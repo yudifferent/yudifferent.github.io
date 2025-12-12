@@ -254,55 +254,56 @@
 
     <main class="page-card">
       <div class="tag">LEGO 作品</div>
-      <h1>UltraTrack</h1>
+      <h1>Aquarius Sumo Car</h1>
       <p class="subtitle">
-        使用 LEGO 積木與馬達、履帶以及超音波感測器打造的避障小車，可前進、轉彎也能夠避開障礙物，並具備穩定的底盤設計。  
-        這個作品主要練習「底盤穩定度」、「感測器使用」與「動力傳遞」。
+        透過旋轉掃描偵測場內水瓶位置，判斷方向後驅動車體前進，將目標推出競技區域的自動控制小車。
+        這個作品主要練習「邏輯決策」、「感測判斷」與「動作控制」。
       </p>
 
       <!-- 作品主圖：把 src 改成你現在作品用的那個圖片網址 -->
-      <img
+     <img
         src="https://raw.githubusercontent.com/yudifferent/yudifferent.github.io/main/bullte.png"
-        alt="UltraTrack"
+        alt="Aquarius Sumo Car"
         class="hero-img"
-      />
+      	/>
 
       <h2>作品介紹</h2>
 	<ul>
-        <li>避障車是什麼 ? 是一台能夠「自行感覺環境、做判斷、再行動」的小車</li>
+        <li>水瓶相撲車是什麼 ? 是一台以「主動搜尋、判斷與出擊」為核心概念的自動對戰小車。
+</li>
 	<li>它會：</li>
 	<ul class="feature-list">
-  	<li><span class="step-icon">1</span> 偵測前方是否有障礙物</li>
-  	<li><span class="step-icon">2</span> 根據距離決定是否轉彎</li>
-  	<li><span class="step-icon">3</span> 自動控制馬達前進、停止或轉向</li>
+  	<li><span class="step-icon">1</span> 原地旋轉搜尋目標</li>
+  	<li><span class="step-icon">2</span> 鎖定方向並主動前進</li>
+  	<li><span class="step-icon">3</span> 將目標推出場外完成任務</li>
 	</ul>
-	<li><span class="icon">📌</span> 重點不是車子會動</li>
-	<li><span class="icon">👉</span> 而是「它會自己想接下來該怎麼做」</li>
-	<li>這正是程式與工程思維的核心!</li>
+	<li><span class="icon">📌</span> 重點不是車子能不能把水瓶推出場外</li>
+	<li><span class="icon">👉</span> 而是「學生能不能理解機器如何感測環境、做出判斷，並完成一連串行動」</li>
+	<li>這正是工程思維與自動化學習的核心!</li>
 	</ul>
 
       <h2>設計重點</h2>
       <ul>
-        <li>底盤：透過「左右差速」維持低重心，讓車子在轉彎時比較不容易翻覆。</li>
-        <li>傳動：利用履帶超強抓地力的特性來進行前進。</li>
-        <li>結構：利用模組化將底盤、控制器以及感測器分成三層。</li>
+        <li>旋轉搜尋式偵測設計：使用感測器主動掃描場內環境，而不是盲目前進</li>
+        <li>清楚判斷與行為切換邏輯：偵測水瓶變為「攻擊狀態」若途中失去目標則回到「搜尋流程」</li>
+        <li>穩定推進與結構配置：車體結構與馬達輸出經過調整，確保在推動水瓶時保持穩定，不因碰撞而失控或偏移方向</li>
       </ul>
 
       <h2>可以教給學生什麼？</h2>
       <ul>
-        <li>怎麼從「一台車」拆解出底盤、履帶、轉向、傳動等不同部分。</li>
-        <li>實際調整各層結構讓車子能夠穩定、好維修、好擴充。</li>
-        <li>練習在「想做出好玩的東西」與「結構要穩」之間找到平衡。</li>
+        <li>如何從感測資料做出判斷</li>
+        <li>程式邏輯與行為設計</li>
+        <li>問題分析與修正能力</li>
       </ul>
 
       <div class="note">
-        未來如果有學生對「車子」、「機械結構」特別有興趣，  
-        可以以這個作品為基礎，讓他們自己設計外觀或衍伸功能（例如加上簡單的感測與自動控制）。
+        未來如果有學生對「車子」、「邏輯判斷」特別有興趣，  
+        可以以這個作品為基礎，讓他們自己設計外觀或衍伸功能（加上其他功能的感測器與控制系統）。
       </div>
     </main>
 
     <footer>
-      © 2025 禹眾不同 Yu Different. Lego 避障車作品介紹
+      © 2025 禹眾不同 Yu Different. Lego 水瓶相撲車作品介紹
     </footer>
   </div>
 
