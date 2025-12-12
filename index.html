@@ -772,6 +772,109 @@
   padding: 10px 12px;
   border-radius: var(--radius-md);
 }
+    /* ===== 為什麼選擇我（Why me）===== */
+.why-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.why-card{
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid #fed7aa;
+}
+
+.why-title{
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.why-text{
+  margin: 0 0 10px;
+  color: var(--gray);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.why-callout{
+  margin-top: 10px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #92400e;
+  padding: 12px 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+.why-side{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.why-mini{
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid #ffe4c7;
+}
+
+.why-mini-soft{
+  background: linear-gradient(135deg, #fed7aa, #ffedd5);
+  border: none;
+}
+
+.why-mini-title{
+  font-weight: 800;
+  margin-bottom: 8px;
+  font-size: 0.98rem;
+}
+
+.why-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.why-list li{
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.55;
+}
+
+.why-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--orange-deep);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.why-mini-text{
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: #7c2d12;
+  line-height: 1.65;
+}
+
+/* 手機版：變成上下排列 */
+@media (max-width: 768px){
+  .why-grid{
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
   </style>
 </head>
 <body id="top">
@@ -786,6 +889,7 @@
       <a href="#courses">課程規劃</a>
       <a href="#portfolio">作品集</a>
       <a href="#process">上課流程</a>
+      <a href="#why-me">為什麼選擇我</a>
       <a href="#howto">如何開始</a>
       <a href="#faq">常見問題 Q&A</a>
       <a href="#contact">聯絡方式</a>
@@ -1070,7 +1174,57 @@
     <p class="process-note">課程重點不在速度，而在於讓學生真正理解每一個步驟。</p>
   </div>
 </section>
+<!-- 為什麼是我來教 -->
+<section id="why-me">
+  <div class="container">
+    <h2 class="section-title">為什麼選擇禹眾不同？</h2>
+    <p class="section-subtitle">不是只完成作品，而是帶著學生理解、嘗試，最後做出自己的成就感。</p>
 
+    <div class="why-grid">
+      <!-- 左：理念與背景 -->
+      <div class="why-card">
+        <h3 class="why-title">我怎麼帶學生學習</h3>
+        <p class="why-text">
+          我長期接觸 LEGO、Arduino 與機器人實作，熟悉從入門到專題的學習節奏，
+          也了解學生最常卡住的地方（例如接線、感測判斷、程式邏輯與 debug）。
+        </p>
+        <p class="why-text">
+          教學時我重視的不是速度，而是讓學生真正理解「為什麼要這樣設計」與「失敗時怎麼修正」。
+          透過小班或一對一的方式，依學生程度與興趣客製內容，讓每個人都能用自己的步調前進。
+        </p>
+
+        <div class="why-callout">
+          <strong>我相信：</strong>
+          重點不是一次做出來，而是在反覆測試與修正中，學會思考與解決問題。
+        </div>
+      </div>
+
+      <!-- 右：特色小卡（可改） -->
+      <div class="why-side">
+        <div class="why-mini">
+          <div class="why-mini-title">教學特色</div>
+          <ul class="why-list">
+            <li><span class="why-dot"></span>以作品為核心：做中學、學中做</li>
+            <li><span class="why-dot"></span>分段目標：每堂都有可見成果</li>
+            <li><span class="why-dot"></span>陪學生 debug：把卡關變成突破</li>
+            <li><span class="why-dot"></span>依程度客製：不硬塞、不趕進度</li>
+          </ul>
+        </div>
+
+        <div class="why-mini why-mini-soft">
+          <div class="why-mini-title">想先聊聊也可以</div>
+          <p class="why-mini-text">
+            不確定適不適合？可以先私訊我孩子的年齡、程度與興趣，
+            我會提供建議方向，不需要立刻報名。
+          </p>
+          <a class="btn btn-primary" href="https://line.me/R/ti/p/@595zbnkv" target="_blank">
+            <span class="icon">💬</span> LINE 詢問課程
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- 如何開始 / 步驟 -->
   <section id="howto">
@@ -1208,6 +1362,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
