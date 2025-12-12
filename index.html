@@ -729,6 +729,19 @@
   margin-left: auto;
   margin-right: auto;
 }
+    /* 作品集改成橫向排列（像「如何開始」） */
+.portfolio-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;        /* 超過就換行 */
+  justify-content: center;
+}
+
+/* 每一張作品卡片 */
+.portfolio-grid .card {
+  width: 300px;           /* 卡片寬度，可改 280 / 320 */
+  box-sizing: border-box;
+}
   </style>
 </head>
 <body id="top">
@@ -933,9 +946,7 @@
     <!-- 之後如果有新作品，就在下面再加一個 a.teacher-work 就好 -->
 
   </div>
-
       </div>
-
       <!-- 學生作品 -->
       <div class="portfolio-section student-works" style="margin: 0 auto;">
         <h3 style="font-size:1rem;margin-bottom:6px;">學生作品</h3>
@@ -1086,6 +1097,7 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
