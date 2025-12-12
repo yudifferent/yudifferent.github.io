@@ -215,6 +215,19 @@
       .page-card { padding: 16px 14px 20px; }
       h1 { font-size: 1.3rem; }
     }
+.feature-list {
+  list-style: none;        /* 🔥 拿掉黑點 */
+  padding-left: 0;         /* 🔥 拿掉預設縮排 */
+  margin: 8px 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
   </style>
 </head>
 <body id="top">
@@ -257,10 +270,12 @@
       <h2>作品介紹</h2>
 	<ul>
         <li>避障車是什麼 ? 是一台能夠「自行感覺環境、做判斷、再行動」的小車</li>
-	<li>它會:</li>
-	<li><span class="step-icon">1</span>偵測前方是否有障礙物</li>
-	<li><span class="step-icon">2</span>根據距離要不要轉彎</li>
-	<li><span class="step-icon">3</span>自動控制馬達要前進、停止或轉向</li>
+	<li>它會：</li>
+	<ul class="feature-list">
+  	<li><span class="step-icon">1</span> 偵測前方是否有障礙物</li>
+  	<li><span class="step-icon">2</span> 根據距離決定是否轉彎</li>
+  	<li><span class="step-icon">3</span> 自動控制馬達前進、停止或轉向</li>
+	</ul>
 	<li><span class="icon">📌</span> 重點不是車子會動</li>
 	<li><span class="icon">👉</span> 而是「它會自己想接下來該怎麼做」</li>
 	<li>這正是程式與工程思維的核心!</li>
