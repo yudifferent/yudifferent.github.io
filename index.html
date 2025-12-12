@@ -6,86 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="禹眾不同 Yu Different｜專注 LEGO 與 Arduino 的實作教學，讓孩子從動手做開始喜歡科技與創造。" />
   <style>
-/* 老師作品列表：整個小小可捲動區塊 */
-.teacher-works {
-  margin-top: 8px;
-  max-height: 320px;     /* 卡片內最大高度，超過就可以往下捲 */
-  overflow-y: auto;
-  padding-right: 6px;
-}
-.teacher-work {
-  max-width: 450px;      /* 控制整個卡片大小 */
-  margin: 0 auto 20px;  /* 置中 + 底部留空 */
-  padding: 16px;
-  box-sizing: border-box;
-}
-/* 讓「學生作品」這一塊不要無限拉長，超過就用滾輪 */
-.student-works .portfolio-grid{
-  max-height: 260px;     /* 想更矮就 220；想更高就 320 */
-  overflow-y: auto;
-  padding-right: 6px;
-}
 
-/* 如果你覺得學生作品整塊太寬，也一起縮小置中 */
-.student-works{
-  max-width: 465px;      /* 你想更小就 480 */
-  margin-left: auto;
-  margin-right: auto;
-}
-.student-works .card{
-  padding: 14px;
-}
-.student-works .portfolio-placeholder{
-  line-height: 1.6;
-}
-
-    
-/* 每一個老師作品的小卡片 */
-.teacher-work {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 10px 10px 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
-}
-
-.teacher-work:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16);
-}
-
-/* 卡片裡的圖片：這裡會控制不要超大，也不會變形 */
-.teacher-work img {
-  width: 70%;        /* 你現在想縮小的比例 */
-  height: auto;
-  display: block;    /* 讓 margin 置中有效 */
-  margin: 0 auto;    /* 這行＝水平置中 */
-  border-radius: 12px;
-}
-
-/* 作品標題 */
-.teacher-work-title {
-  margin-top: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-/* 作品簡介 */
-.teacher-work-text {
-  margin-top: 4px;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #4b5563;
-}
-
-
-
-
-    
     /* ===== 全站基本設定 ===== */
     :root {
       --orange: #fb923c;
@@ -719,6 +640,74 @@
         order: -1;
       }
     }
+
+
+* ===== 作品集（兩個框 + 框內垂直滾動） ===== */
+.portfolio-wrap{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.portfolio-box{
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.portfolio-box h3{
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+/* 這一層是「可滾動區」：作品多就往下滾 */
+.portfolio-list{
+  max-height: 320px;   /* 框的高度：想更高 380，想更低 260 */
+  overflow-y: auto;
+  padding-right: 6px;  /* 讓滾動條不擋到內容 */
+}
+
+/* 每一張作品卡 */
+.work-item{
+  display: block;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+  color: inherit;
+  text-decoration: none;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.work-item:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+}
+
+.work-item img{
+  width: 100%;
+  height: 180px;          /* 圖片高度：160/200 都可以 */
+  object-fit: contain;    /* 完整顯示不裁切 */
+  background: #f3f4f6;
+  border-radius: 12px;
+}
+
+.work-title{
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.work-desc{
+  margin-top: 4px;
+  margin-bottom: 0;
+  font-size: .88rem;
+  line-height: 1.5;
+  color: #4b5563;
+}
   
   </style>
 </head>
@@ -892,56 +881,71 @@
 
       </div>
     </div>
-  </section>
-<!-- 作品集 Portfolio -->
-  <section id="portfolio">
-    <div class="container">
-      <h2 class="section-title">作品集 Portfolio</h2>
-      <p class="section-subtitle">
-        目前作品仍在整理中，未來會陸續放上老師與學生一起完成的 LEGO、Arduino 與專題成果。
-      </p>
 
+
+    <!-- 作品集 Portfolio -->
+<section id="portfolio">
+  <div class="container">
+    <h2 class="section-title">作品集 Portfolio</h2>
+    <p class="section-subtitle">
+      老師作品與學生作品會持續更新，點作品可進入詳細頁了解由來與製作內容。
+    </p>
+
+    <div class="portfolio-wrap">
       <!-- 老師作品 -->
-<div class="portfolio-card">
-  <div class="tag lego-tag">LEGO</div>
-  <h3>老師作品 Teacher’s Works</h3>
+      <div class="portfolio-box">
+        <h3>老師作品 Teacher’s Works</h3>
 
-  <!-- 老師作品：可捲動區塊 -->
-  <div class="teacher-works">
+        <div class="portfolio-list">
+          <!-- 作品 1 -->
+          <a class="work-item" href="work-lego-car.html">
+            <img src="lego.png" alt="UltraTrack">
+            <div class="work-title">UltraTrack</div>
+            <p class="work-desc">
+              使用 LEGO 履帶與馬達，搭配超音波感測器製作的避障小車，能偵測前方障礙並自動轉向。
+            </p>
+          </a>
 
-    <!-- 作品 1：UltraTrack -->
-    <a class="teacher-work" href="work-lego-car.html">
-      <img src="lego.png" alt="UltraTrack">
-      <div class="teacher-work-title">UltraTrack</div>
-      <p class="teacher-work-text">
-        使用 LEGO 履帶與馬達，搭配超音波感測器製作的避障小車，能偵測前方障礙並自動轉向。
-      </p>
-    </a>
-  <a class="teacher-work" href="work-lego-car.html">...</a>
-  <a class="teacher-work" href="work-lego-car.html">...</a>
-  <a class="teacher-work" href="work-lego-car.html">...</a>
-    
-    <!-- 之後如果有新作品，就在下面再加一個 a.teacher-work 就好 -->
-
-  </div>
+          <!-- 之後新增作品：複製這塊 work-item 貼在下面 -->
+          <!--
+          <a class="work-item" href="work-xxx.html">
+            <img src="xxx.png" alt="作品名稱">
+            <div class="work-title">作品名稱</div>
+            <p class="work-desc">作品簡介...</p>
+          </a>
+          -->
+        </div>
       </div>
+
       <!-- 學生作品 -->
-      <div class="portfolio-section student-works" style="margin: 0 auto;">
-        <h3 style="font-size:1rem;margin-bottom:6px;">學生作品</h3>
-        <div class="portfolio-grid">
-          <div class="card">
-            <div class="tag"><span class="dot"></span>敬請期待</div>
-            <p class="portfolio-placeholder">
+      <div class="portfolio-box">
+        <h3>學生作品 Student Works</h3>
+
+        <div class="portfolio-list">
+          <!-- 目前還沒有作品可以先放這張 -->
+          <div class="work-item">
+            <div class="work-title">敬請期待</div>
+            <p class="work-desc">
               未來學生完成的作品會放在這裡，記錄他們從零開始到完成作品的過程與成果。
-              每一件作品都會附上簡短介紹與學生自己的想法。
             </p>
           </div>
+
+          <!-- 未來有作品就用 a.work-item（可以點進詳細頁） -->
+          <!--
+          <a class="work-item" href="student-work-001.html">
+            <img src="student-001.png" alt="學生作品">
+            <div class="work-title">學生作品：XXX</div>
+            <p class="work-desc">學生學到的技能／作品特色...</p>
+          </a>
+          -->
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  
+
+
   <!-- 如何開始 / 步驟 -->
   <section id="howto">
     <div class="container">
@@ -1015,8 +1019,9 @@
         </li>
       </ul>
     </div>
-  </section>
 
+
+  </section>
   <!-- 聯絡方式 / Call to action -->
   <section id="contact">
     <div class="container">
@@ -1049,6 +1054,8 @@
     </div>
   </section>
 
+
+
   <!-- 頁尾 -->
   <footer>
     © 2025 禹眾不同 Yu Different. All rights reserved.
@@ -1075,45 +1082,3 @@
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
