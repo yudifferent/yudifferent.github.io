@@ -882,6 +882,78 @@
   opacity: 1;
   transform: translateY(0);
 }
+    /* ===== 課程方向 A ===== */
+.course-overview {
+  background: #fffaf0;
+}
+
+.section-title {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.course-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.course-card.highlight {
+  border: 2px solid #ff8a00;
+}
+
+.course-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.course-desc {
+  color: #555;
+  margin: 12px 0;
+}
+
+.course-target {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.course-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid #ff8a00;
+  color: #ff8a00;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.course-btn.primary {
+  background: #ff8a00;
+  color: white;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 <body id="top">
@@ -961,6 +1033,49 @@
       </div>
     </div>
   </section>
+  <section class="course-overview" id="courses">
+  <div class="container">
+    <h2 class="section-title">課程方向</h2>
+    <p class="section-subtitle">
+      依孩子年齡與目標，選擇最適合的學習路線
+    </p>
+
+    <div class="course-grid">
+      <!-- LEGO -->
+      <div class="course-card">
+        <div class="course-icon">🧱</div>
+        <h3>LEGO 創客課程</h3>
+        <p class="course-desc">
+          從結構、齒輪到創意組裝，培養動手做與空間概念。
+        </p>
+        <p class="course-target">適合：國小 ～ 國中</p>
+        <a href="#lego" class="course-btn">看 LEGO 課程</a>
+      </div>
+
+      <!-- Arduino -->
+      <div class="course-card">
+        <div class="course-icon">💡</div>
+        <h3>Arduino 程式實作</h3>
+        <p class="course-desc">
+          感測器、邏輯判斷、實際接線，建立程式與電子基礎。
+        </p>
+        <p class="course-target">適合：國中 ～ 高中</p>
+        <a href="#arduino" class="course-btn">看 Arduino 課程</a>
+      </div>
+
+      <!-- 專題 -->
+      <div class="course-card highlight">
+        <div class="course-icon">🚀</div>
+        <h3>專題客製指導</h3>
+        <p class="course-desc">
+          競賽、學習歷程、個人作品，一對一陪跑完成專題。
+        </p>
+        <p class="course-target">適合：有明確目標的學生</p>
+        <a href="#project" class="course-btn primary">了解專題指導</a>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- 關於我 / 為什麼開這個課 -->
   <section id="about">
@@ -1394,6 +1509,7 @@
 </script>
 </body>
 </html>
+
 
 
 
