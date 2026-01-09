@@ -623,21 +623,18 @@
       .hero-inner {
         grid-template-columns: minmax(0, 1fr);
       }
-
+        .hero-main {
+        order: 1;
+      }
+      .hero-card {
+        order: 2;
+      }
       .hero {
         padding-top: 50px;
       }
 
       section {
         padding: 44px 0;
-      }
-
-      .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero-card {
-        order: -1;
       }
     }
 
@@ -908,7 +905,7 @@
   <!-- Hero 首頁區 -->
   <section class="hero">
     <div class="container hero-inner">
-      <div>
+      <div class="hero-main">
         <div class="badge">
           <span class="badge-dot"></span>
           LEGO・Arduino・創客實作教學
@@ -1397,6 +1394,7 @@
 </script>
 </body>
 </html>
+
 
 
 
